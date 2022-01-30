@@ -10,41 +10,46 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          brightness: Brightness.light,
+          backgroundColor: Colors.white,
+          elevation: 0,
+          title: const Text(
+            'facebook',
+            style: TextStyle(
+              fontSize: 28,
+              color: Palette.facebookBlue,
+              fontWeight: FontWeight.bold,
+              letterSpacing: -1.2,
+            ),
+          ),
+          centerTitle: false,
+          actions: [
+            CircleButton(
+                icon: Icons.search,
+                iconSize: 30,
+                onPressed: () {
+                  // ignore: avoid_print
+                  print('Search');
+                }),
+            CircleButton(
+                icon: MdiIcons.facebookMessenger,
+                iconSize: 30,
+                onPressed: () {
+                  // ignore: avoid_print
+                  print('Messanger');
+                }),
+          ]),
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            brightness: Brightness.light,
-            backgroundColor: Colors.white,
-            title: const Text(
-              'facebook',
-              style: TextStyle(
-                fontSize: 28,
-                color: Palette.facebookBlue,
-                fontWeight: FontWeight.bold,
-                letterSpacing: -1.2,
-              ),
-            ),
-            centerTitle: false,
-            floating: true,
-            actions: [
-              CircleButton(
-                  icon: Icons.search,
-                  iconSize: 30,
-                  onPressed: () {
-                    // ignore: avoid_print
-                    print('Search');
-                  }),
-              CircleButton(
-                  icon: MdiIcons.facebookMessenger,
-                  iconSize: 30,
-                  onPressed: () {
-                    // ignore: avoid_print
-                    print('Messanger');
-                  }),
-            ],
-          ),
           SliverToBoxAdapter(
             child: CreatePostContainer(currentUser: currentUser),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+            sliver: SliverToBoxAdapter(
+              child: Room(onlineUsers: onlineUsers),
+            ),
           )
         ],
       ),
