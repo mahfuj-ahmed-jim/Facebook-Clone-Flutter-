@@ -1,9 +1,8 @@
 import 'package:facebook_clone/models/models.dart';
 
 final User currentUser = User(
-  name: 'Marcus Ng',
-  imageUrl:
-      'https://images.unsplash.com/photo-1578133671540-edad0b3d689e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80',
+  name: 'Mahfuj Ahmed Jim',
+  imageUrl: 'assets/jim.jpg',
 );
 
 final List<User> onlineUsers = [
