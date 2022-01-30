@@ -2,15 +2,11 @@ import 'package:facebook_clone/models/models.dart';
 
 final User currentUser = User(
   name: 'Mahfuj Ahmed Jim',
-  imageUrl: 'assets/jim.jpg',
+  imageUrl:
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
 );
 
 final List<User> onlineUsers = [
-  User(
-    name: 'David Brooks',
-    imageUrl:
-        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-  ),
   User(
     name: 'Jane Doe',
     imageUrl:
