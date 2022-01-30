@@ -22,7 +22,7 @@ class CircleButton extends StatelessWidget {
       ),
       child: IconButton(
         onPressed: () {
-          onPressed;
+          onPressed();
         },
         icon: Icon(icon),
         color: Colors.black,
