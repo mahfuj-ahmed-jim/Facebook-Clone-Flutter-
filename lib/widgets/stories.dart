@@ -54,65 +54,71 @@ class StoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(12),
-          child: CachedNetworkImage(
-            imageUrl: isAddStory ? currentUser!.imageUrl : story!.imageUrl,
+    return GestureDetector(
+      onTap: () {
+        // ignore: avoid_print
+        isAddStory ? print('Add Story') : print(story!.user.name);
+      },
+      child: Stack(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: CachedNetworkImage(
+              imageUrl: isAddStory ? currentUser!.imageUrl : story!.imageUrl,
+              height: double.infinity,
+              width: 110,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Container(
             height: double.infinity,
             width: 110,
-            fit: BoxFit.cover,
-          ),
-        ),
-        Container(
-          height: double.infinity,
-          width: 110,
-          decoration: BoxDecoration(
-            gradient: Palette.storyGradient,
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
-        Positioned(
-          top: 8,
-          left: 8,
-          child: isAddStory
-              ? Container(
-                  height: 40,
-                  width: 40,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                  ),
-                  child: IconButton(
-                    padding: EdgeInsets.zero,
-                    icon: const Icon(Icons.add),
-                    iconSize: 30,
-                    color: Palette.facebookBlue,
-                    // ignore: avoid_print
-                    onPressed: () => print('Add new story'),
-                  ),
-                )
-              : ProfileAvataar(
-                  hasBorder: !story!.isViewed,
-                  imageUrl: story!.user.imageUrl,
-                ),
-        ),
-        Positioned(
-          left: 8,
-          bottom: 8,
-          right: 8,
-          child: Text(
-            isAddStory ? 'Add to story' : story!.user.name,
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
+            decoration: BoxDecoration(
+              gradient: Palette.storyGradient,
+              borderRadius: BorderRadius.circular(12),
             ),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
           ),
-        )
-      ],
+          Positioned(
+            top: 8,
+            left: 8,
+            child: isAddStory
+                ? Container(
+                    height: 40,
+                    width: 40,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                    ),
+                    child: IconButton(
+                      padding: EdgeInsets.zero,
+                      icon: const Icon(Icons.add),
+                      iconSize: 30,
+                      color: Palette.facebookBlue,
+                      // ignore: avoid_print
+                      onPressed: () => print('Add new story'),
+                    ),
+                  )
+                : ProfileAvataar(
+                    hasBorder: !story!.isViewed,
+                    imageUrl: story!.user.imageUrl,
+                  ),
+          ),
+          Positioned(
+            left: 8,
+            bottom: 8,
+            right: 8,
+            child: Text(
+              isAddStory ? 'Add to story' : story!.user.name,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
