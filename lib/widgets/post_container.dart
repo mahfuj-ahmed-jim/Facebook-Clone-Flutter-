@@ -12,52 +12,62 @@ class PostContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 5),
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      color: Colors.white,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                PostHeader(post: post),
-                const SizedBox(
-                  height: 4,
-                ),
-                Text(post.caption),
-                post.imageUrl != "null"
-                    ? const SizedBox.shrink()
-                    : const SizedBox(
-                        height: 6,
-                      ),
-              ],
-            ),
-          ),
-          post.imageUrl != "null"
-              ? Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: CachedNetworkImage(
-                    imageUrl: post.imageUrl,
-                    placeholder: (context, url) =>
-                        const CircularProgressIndicator(
-                      color: Palette.facebookBlue,
-                      strokeWidth: 3,
-                    ),
-                    errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
+    final bool isDesktop = Responsive.isDekstop(context);
+
+    return Card(
+      margin: EdgeInsets.symmetric(horizontal: isDesktop ? 5 : 0, vertical: 5),
+      elevation: isDesktop ? 1 : 0,
+      shape: isDesktop
+          ? RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            )
+          : null,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        color: Colors.white,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  PostHeader(post: post),
+                  const SizedBox(
+                    height: 4,
                   ),
-                )
-              : const SizedBox.shrink(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: PostStats(
-              post: post,
+                  Text(post.caption),
+                  post.imageUrl != "null"
+                      ? const SizedBox.shrink()
+                      : const SizedBox(
+                          height: 6,
+                        ),
+                ],
+              ),
             ),
-          )
-        ],
+            post.imageUrl != "null"
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: CachedNetworkImage(
+                      imageUrl: post.imageUrl,
+                      placeholder: (context, url) =>
+                          const CircularProgressIndicator(
+                        color: Palette.facebookBlue,
+                        strokeWidth: 3,
+                      ),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
+                    ),
+                  )
+                : const SizedBox.shrink(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: PostStats(
+                post: post,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

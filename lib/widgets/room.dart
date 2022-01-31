@@ -10,29 +10,38 @@ class Room extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      color: Colors.white,
-      child: ListView.builder(
-        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 10),
-        scrollDirection: Axis.horizontal,
-        itemCount: 1 + onlineUsers.length,
-        itemBuilder: (BuildContext context, int index) {
-          if (index == 0) {
-            return const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8),
-              child: CreateRoomButton(),
+    final bool isDesktop = Responsive.isDekstop(context);
+
+    return Card(
+      margin: EdgeInsets.symmetric(horizontal: isDesktop ? 5 : 0),
+      elevation: isDesktop ? 1 : 0,
+      shape: isDesktop
+          ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0))
+          : null,
+      child: Container(
+        height: 60,
+        color: Colors.white,
+        child: ListView.builder(
+          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 10),
+          scrollDirection: Axis.horizontal,
+          itemCount: 1 + onlineUsers.length,
+          itemBuilder: (BuildContext context, int index) {
+            if (index == 0) {
+              return const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8),
+                child: CreateRoomButton(),
+              );
+            }
+            final User user = onlineUsers[index - 1];
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: ProfileAvataar(
+                imageUrl: user.imageUrl,
+                isActive: true,
+              ),
             );
-          }
-          final User user = onlineUsers[index - 1];
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: ProfileAvataar(
-              imageUrl: user.imageUrl,
-              isActive: true,
-            ),
-          );
-        },
+          },
+        ),
       ),
     );
   }
