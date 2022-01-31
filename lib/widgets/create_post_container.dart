@@ -28,7 +28,12 @@ class CreatePostContainer extends StatelessWidget {
                       onPressed: () => print('post'),
                       child: const Align(
                           alignment: Alignment.topLeft,
-                          child: Text('What\'s on your mind?'))))
+                          child: Text(
+                            'What\'s on your mind?',
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ))))
             ],
           ),
           const Divider(
