@@ -1,3 +1,4 @@
+import 'package:facebook_clone/data/data.dart';
 import 'package:facebook_clone/screens/home_screen.dart';
 import 'package:facebook_clone/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -31,24 +32,38 @@ class _NavScreenState extends State<NavScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
     return DefaultTabController(
         length: icons.length,
         child: Scaffold(
+          appBar: Responsive.isDekstop(context)
+              ? PreferredSize(
+                  preferredSize: Size(screenSize.width, 100),
+                  child: CustomAppBar(
+                    currentUser: currentUser,
+                    icons: icons,
+                    selectIndex: selectIndex,
+                    onTap: (index) => setState(() => selectIndex = index),
+                  ),
+                )
+              : null,
           body: IndexedStack(
             index: selectIndex,
             children: screens,
           ),
-          bottomNavigationBar: Padding(
-            padding: const EdgeInsets.only(bottom: 12.0),
-            child: CustomTabBar(
-                icons: icons,
-                selectIndex: selectIndex,
-                onTap: (index) {
-                  setState(() {
-                    selectIndex = index;
-                  });
-                }),
-          ),
+          bottomNavigationBar: !Responsive.isDekstop(context)
+              ? Container(
+                  padding: const EdgeInsets.only(bottom: 12.0),
+                  child: CustomTabBar(
+                      icons: icons,
+                      selectIndex: selectIndex,
+                      onTap: (index) {
+                        setState(() {
+                          selectIndex = index;
+                        });
+                      }),
+                )
+              : const SizedBox.shrink(),
         ));
   }
 }

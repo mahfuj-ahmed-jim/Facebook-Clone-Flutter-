@@ -44,6 +44,7 @@ class CreateRoomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlineButton(
+      // ignore: avoid_print
       onPressed: () => print('Create a room'),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),

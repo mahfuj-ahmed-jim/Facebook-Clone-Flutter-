@@ -54,7 +54,7 @@ class StoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         // ignore: avoid_print
         isAddStory ? print('Add Story') : print(story!.user.name);
