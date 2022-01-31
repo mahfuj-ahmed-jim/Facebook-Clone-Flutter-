@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'models.dart';
 
 class Story {
@@ -6,9 +5,5 @@ class Story {
   final String imageUrl;
   late bool isViewed;
 
-  Story({required this.user, required this.imageUrl, bool? isViewed}) {
-    try {
-      this.isViewed = isViewed!;
-    } catch (e) {}
-  }
+  Story({required this.user, required this.imageUrl, this.isViewed = false});
 }

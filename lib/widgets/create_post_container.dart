@@ -22,11 +22,12 @@ class CreatePostContainer extends StatelessWidget {
               const SizedBox(
                 width: 10,
               ),
-              const Expanded(
-                child: TextField(
-                  decoration: InputDecoration(hintText: 'Wha\'s on your mind?'),
-                ),
-              )
+              Expanded(
+                  child: FlatButton(
+                      onPressed: () => print('post'),
+                      child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Text('What\'s on your mind?'))))
             ],
           ),
           const Divider(

@@ -6,9 +6,13 @@ import 'package:facebook_clone/data/data.dart';
 class ProfileAvataar extends StatelessWidget {
   final String imageUrl;
   final bool isActive;
+  final bool hasBorder;
 
   const ProfileAvataar(
-      {Key? key, required this.imageUrl, this.isActive = false})
+      {Key? key,
+      required this.imageUrl,
+      this.isActive = false,
+      this.hasBorder = false})
       : super(key: key);
 
   @override
@@ -16,11 +20,15 @@ class ProfileAvataar extends StatelessWidget {
     return Stack(
       children: [
         CircleAvatar(
-            radius: 20,
-            backgroundColor: Colors.grey[200],
-            backgroundImage: CachedNetworkImageProvider(
-              imageUrl,
-            )),
+          radius: 20,
+          backgroundColor: Palette.facebookBlue,
+          child: CircleAvatar(
+              radius: hasBorder ? 17 : 20,
+              backgroundColor: Colors.grey[200],
+              backgroundImage: CachedNetworkImageProvider(
+                imageUrl,
+              )),
+        ),
         isActive
             ? Positioned(
                 bottom: 0,

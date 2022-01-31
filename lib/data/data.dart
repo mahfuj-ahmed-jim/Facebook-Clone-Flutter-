@@ -3,7 +3,7 @@ import 'package:facebook_clone/models/models.dart';
 final User currentUser = User(
   name: 'Mahfuj Ahmed Jim',
   imageUrl:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
+      'https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_256,w_256,f_auto,g_faces,z_0.7,q_auto:eco,dpr_1/f2ejf1ap9nkwakj3sxhk',
 );
 
 final List<User> onlineUsers = [
