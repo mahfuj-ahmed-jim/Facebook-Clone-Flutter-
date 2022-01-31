@@ -1,4 +1,3 @@
-import 'package:facebook_clone/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'config/palette.dart';
 import 'screens/screens.dart';
