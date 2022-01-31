@@ -17,7 +17,7 @@ class Responsive extends StatelessWidget {
       MediaQuery.of(context).size.width < 1200;
 
   static bool isDekstop(BuildContext context) =>
-      MediaQuery.of(context).size.width > 1200;
+      MediaQuery.of(context).size.width >= 1200;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,8 @@ class Responsive extends StatelessWidget {
       builder: (context, constraints) {
         if (constraints.maxHeight >= 1200) {
           return dekstop;
-        } else if (constraints.maxHeight >= 000) {
+        } else if (constraints.maxHeight >= 800 &&
+            constraints.maxHeight < 1200) {
           return tablet ?? mobile;
         } else {
           return mobile;
