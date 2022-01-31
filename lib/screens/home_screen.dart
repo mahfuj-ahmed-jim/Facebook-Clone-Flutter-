@@ -47,13 +47,13 @@ class HomeScreen extends StatelessWidget {
             child: CreatePostContainer(currentUser: currentUser),
           ),
           SliverPadding(
-            padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
             sliver: SliverToBoxAdapter(
               child: Room(onlineUsers: onlineUsers),
             ),
           ),
           SliverPadding(
-            padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
             sliver: SliverToBoxAdapter(
               child: Stories(
                 currentUser: currentUser,

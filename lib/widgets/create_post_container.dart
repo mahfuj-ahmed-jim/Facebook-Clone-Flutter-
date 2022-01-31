@@ -1,4 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:facebook_clone/models/models.dart';
 import 'package:facebook_clone/widgets/profile_avatar.dart';
@@ -23,9 +24,9 @@ class CreatePostContainer extends StatelessWidget {
                 width: 10,
               ),
               Expanded(
-                  child: FlatButton(
+                  child: TextButton(
                       onPressed: () => print('post'),
-                      child: Align(
+                      child: const Align(
                           alignment: Alignment.topLeft,
                           child: Text('What\'s on your mind?'))))
             ],
@@ -39,7 +40,7 @@ class CreatePostContainer extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                FlatButton.icon(
+                TextButton.icon(
                   onPressed: () {
                     print('Live');
                   },
@@ -52,7 +53,7 @@ class CreatePostContainer extends StatelessWidget {
                 const VerticalDivider(
                   width: 8,
                 ),
-                FlatButton.icon(
+                TextButton.icon(
                   onPressed: () {
                     print('Photo');
                   },
@@ -65,7 +66,7 @@ class CreatePostContainer extends StatelessWidget {
                 const VerticalDivider(
                   width: 8,
                 ),
-                FlatButton.icon(
+                TextButton.icon(
                   onPressed: () {
                     print('Room');
                   },
