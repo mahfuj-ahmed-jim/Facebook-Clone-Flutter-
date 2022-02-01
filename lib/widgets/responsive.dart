@@ -10,23 +10,23 @@ class Responsive extends StatelessWidget {
       : super(key: key);
 
   static bool isMobile(BuildContext context) =>
-      MediaQuery.of(context).size.width < 800;
+      MediaQuery.of(context).size.width < 600;
 
   static bool isTablet(BuildContext context) =>
-      MediaQuery.of(context).size.width >= 800 &&
-      MediaQuery.of(context).size.width < 1200;
+      MediaQuery.of(context).size.width >= 600 &&
+      MediaQuery.of(context).size.width < 1080;
 
   static bool isDekstop(BuildContext context) =>
-      MediaQuery.of(context).size.width >= 1200;
+      MediaQuery.of(context).size.width >= 1080;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxHeight >= 1200) {
+        if (constraints.maxHeight >= 1080) {
           return dekstop;
-        } else if (constraints.maxHeight >= 800 &&
-            constraints.maxHeight < 1200) {
+        } else if (constraints.maxHeight >= 600 &&
+            constraints.maxHeight < 1080) {
           return tablet ?? mobile;
         } else {
           return mobile;

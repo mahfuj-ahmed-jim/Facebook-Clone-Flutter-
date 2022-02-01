@@ -58,7 +58,10 @@ class CustomAppBar extends StatelessWidget {
               child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              UserCard(currentUser: currentUser),
+              UserCard(
+                currentUser: currentUser,
+                isFullName: false,
+              ),
               const SizedBox(
                 width: 12,
               ),

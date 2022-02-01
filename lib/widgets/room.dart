@@ -16,7 +16,7 @@ class Room extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: isDesktop ? 5 : 0),
       elevation: isDesktop ? 1 : 0,
       shape: isDesktop
-          ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0))
+          ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
           : null,
       child: Container(
         height: 60,

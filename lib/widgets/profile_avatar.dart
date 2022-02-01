@@ -19,7 +19,7 @@ class ProfileAvataar extends StatelessWidget {
     return Stack(
       children: [
         CircleAvatar(
-          radius: 20,
+          radius: 18.5,
           backgroundColor: Palette.facebookBlue,
           child: CircleAvatar(
               radius: hasBorder ? 17 : 20,

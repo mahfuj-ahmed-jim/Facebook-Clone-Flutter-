@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 
 class UserCard extends StatelessWidget {
   final User currentUser;
+  final bool isFullName;
 
-  const UserCard({Key? key, required this.currentUser}) : super(key: key);
+  const UserCard({Key? key, required this.currentUser, this.isFullName = true})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +23,13 @@ class UserCard extends StatelessWidget {
           const SizedBox(
             width: 6,
           ),
-          Text(
-            currentUser.name.split(' ').first,
-            style: const TextStyle(
-              fontSize: 16,
+          Flexible(
+            child: Text(
+              isFullName ? currentUser.name : currentUser.name.split(' ').first,
+              style: const TextStyle(
+                fontSize: 15,
+              ),
+              overflow: TextOverflow.ellipsis,
             ),
           )
         ],
